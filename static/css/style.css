@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto Slab", serif;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+}
+
+/*-----------------------NavBar---------------------*/
+
+nav{
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav .nav-container{
+    width: 80%;
+    margin: 0 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.nav-container .logo{
+    display: flex;
+    align-items: center;
+}
+
+.nav-container .logo img{
+    height: 3rem;
+}
+
+.nav-container .logo h1{
+    color: black;
+    margin-left: 0.5rem;
+}
+
+.nav-container .links{
+    display: flex;
+}
+
+.links a{
+    position: relative;
+    color: black;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.active-link a{
+    position: relative;
+    color: #E35451;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.links a::before{
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    height: 3px;
+    width: 0;
+    border-radius: 20px;
+    background-color: #E35451;
+    transition: 0.2s;
+}
+
+.links a:hover::before{
+    width: 100%;
+}
+
+nav i{
+    position: absolute;
+    font-size: 2rem;
+    top: 8px;
+    right: 20px;
+    color: black;
+    opacity: 0;
+
+}
+
+nav i:hover{
+    filter: drop-shadow(0 0 20px white);
+}
+
+.dropdown{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    backdrop-filter: blur(5px);
+    transition: 0.8s;
+    transform: translateY(-450px);
+}
+
+.dropdown .dropdown-links{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    opacity: 80%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown .dropdown-links a{
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px 0;
+    color: black;
+    text-decoration: none;
+    transition: 0.2s linear;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.dropdown a:hover{
+    background-color: #E35451;
+}
+
+/*----------------------------------RESIZING--------------------------------*/
+
+@media (width < 600px) {
+    nav i {
+        opacity: 1;
+    }
+
+    .nav-container .links {
+        display: none;
+    }
+}
