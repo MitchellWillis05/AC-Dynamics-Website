@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
     padding: 0;
     margin: 0;
-    font-family: "Roboto Slab", serif;
+    font-family: "Poppins Medium", serif;
     box-sizing: border-box;
 }
 
@@ -40,6 +41,7 @@ nav .nav-container{
 .nav-container .logo{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .nav-container .logo img{
@@ -49,6 +51,7 @@ nav .nav-container{
 .nav-container .logo h1{
     color: black;
     margin-left: 0.5rem;
+    font-family: "Roboto Slab", "serif";
 }
 
 .nav-container .links{
@@ -89,11 +92,17 @@ nav .nav-container{
 nav i{
     position: absolute;
     font-size: 2rem;
-    top: 8px;
     right: 20px;
     color: black;
     opacity: 0;
+}
 
+nav .menu i{
+    top: 30px;
+}
+
+nav .cancel i{
+    top: 8px;
 }
 
 nav i:hover{
@@ -117,7 +126,6 @@ nav i:hover{
     justify-content: center;
     align-items: center;
     background-color: white;
-    opacity: 80%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -136,14 +144,225 @@ nav i:hover{
     background-color: #E35451;
 }
 
+/*----------------------------------INTRO--------------------------------*/
+
+.intro{
+    width: 100%;
+    height: 80vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/static/images/intro/intro-placeholder.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.intro h1{
+    font-size: clamp(2rem, 1rem + 6vw, 5rem);
+    font-weight: 600;
+    font-family: "Montserrat", serif;
+    margin: -10px 0 -10px 0;
+}
+
+.intro .highlight{
+    color: #E35451;
+}
+
+.intro p{
+    font-size: clamp(0.6rem, 0.1rem + 1.7vw, 1.2rem);
+    font-family: "Montserrat", serif;
+}
+
+.intro i{
+    font-size: clamp(1.1rem, 0.2rem + 2vw, 2rem);
+    transition: 0.2s linear;
+}
+
+.intro .intro-text{
+
+}
+
+.intro .intro-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.intro .intro-button-container {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+}
+
+.intro .intro-button-container .intro-button{
+    display: flex;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 50px;
+    padding: 0.7rem 1.1rem 0.7rem 1.1rem;
+    margin: 0 20px 0 20px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.intro .intro-button-container .intro-button-1{
+    display: flex;
+    align-items: center;
+    border: 3px solid #E35451;
+    border-radius: 50px;
+    padding: 0.7rem 1.1rem 0.7rem 1.1rem;
+    margin: 0 20px 0 20px;
+    cursor: pointer;
+    background-color: #E35451;
+    transition: 0.1s;
+}
+
+.intro .intro-button-container .intro-button:hover{
+    scale: 1.1;
+}
+
+.intro .intro-button-container .intro-button-1:hover{
+    scale: 1.1;
+}
+
+.intro .intro-button-container .intro-button-1 i{
+    padding-left: 10px;
+}
+
+.intro .intro-button-container .intro-button i{
+    padding-left: 10px;
+}
+
+/*----------------------------------HOME--------------------------------*/
+
+.what-we-do {
+    width: 100%;
+    height: 60vh;
+}
+
+.what-we-do .heading {
+    padding: 0 7% 0 7%;
+    text-align: center;
+    color: #1F84C6;
+    line-height: 8rem;
+    font-size: clamp(1.5rem, 0.7rem + 3vw, 2rem);
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.what-we-do h1{
+    border-bottom: 2px solid #E35451;
+    font-family: "Montserrat", "serif";
+}
+
+.what-we-do p {
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: clamp(0.6rem, 0.3rem + 1.5vw, 1.1rem);
+    font-weight: 500;
+    font-family: "Montserrat", "serif";
+}
+
+.what-we-do .content{
+    width: 100%;
+    padding: 0 15% 0 15%;
+}
+
+/*----------------------------------LOGO SCROLLER--------------------------------*/
+
+@keyframes slide {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+.logo-section{
+    height: 20vh;
+}
+.logos {
+    overflow: hidden;
+    padding: 60px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+    margin: 0 7%;
+}
+
+.logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.logos:before, .logos:after{
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+}
+
+.logos-slide {
+    display: inline-block;
+    animation: 20s slide infinite linear;
+}
+
+.logos-slide img{
+    height: 100px;
+    margin: 0 50px;
+}
+
+
+
 /*----------------------------------RESIZING--------------------------------*/
 
-@media (width < 600px) {
+@media (width < 870px) {
+
+
+    .intro .intro-button-container {
+        display: none;
+    }
+}
+
+@media (width < 1050px) {
     nav i {
         opacity: 1;
     }
 
     .nav-container .links {
         display: none;
+    }
+
+    .logos:before, .logos:after{
+        width: 50px;
+    }
+}
+
+@media (width < 1500px) {
+    .intro .intro-container {
+        display: inline;
+        justify-content: center;
+    }
+
+    .intro h1{
+        text-align: center;
+    }
+
+    .intro .intro-button-container {
+        justify-content: center;
+        margin-top: 2rem;
     }
 }
