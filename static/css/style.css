@@ -23,7 +23,7 @@ body {
 nav{
     position: absolute;
     width: 100%;
-    height: 10vh;
+    height: 100px;
     background-color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
@@ -43,6 +43,16 @@ nav .nav-container{
     align-items: center;
     cursor: pointer;
 }
+
+.logo-link {
+    text-decoration: none; /* Removes underline from text */
+    display: block;
+}
+
+.logo-link img {
+    display: block;
+}
+
 
 .nav-container .logo img{
     height: 3rem;
@@ -94,11 +104,12 @@ nav i{
     font-size: 2rem;
     right: 20px;
     color: black;
-    opacity: 0;
+
 }
 
 nav .menu i{
-    top: 30px;
+    top: 35px;
+    display: none;
 }
 
 nav .cancel i{
@@ -181,8 +192,14 @@ nav i:hover{
     transition: 0.2s linear;
 }
 
-.intro .intro-text{
+.intro .intro-button{
+    background: none;
+    color: white;
+}
 
+.intro .intro-button-1{
+    background: none;
+    color: white;
 }
 
 .intro .intro-container {
@@ -203,7 +220,7 @@ nav i:hover{
     align-items: center;
     border: 3px solid white;
     border-radius: 50px;
-    padding: 0.7rem 1.1rem 0.7rem 1.1rem;
+    padding: 1rem 1.3rem 1.1rem 1.5rem;
     margin: 0 20px 0 20px;
     cursor: pointer;
     transition: 0.1s;
@@ -214,7 +231,7 @@ nav i:hover{
     align-items: center;
     border: 3px solid #E35451;
     border-radius: 50px;
-    padding: 0.7rem 1.1rem 0.7rem 1.1rem;
+    padding: 1rem 1.3rem 1.1rem 1.5rem;
     margin: 0 20px 0 20px;
     cursor: pointer;
     background-color: #E35451;
@@ -231,10 +248,12 @@ nav i:hover{
 
 .intro .intro-button-container .intro-button-1 i{
     padding-left: 10px;
+    font-size: 1.5rem;
 }
 
 .intro .intro-button-container .intro-button i{
     padding-left: 10px;
+    font-size: 1.5rem;
 }
 
 /*----------------------------------HOME--------------------------------*/
@@ -242,6 +261,8 @@ nav i:hover{
 .what-we-do {
     width: 100%;
     height: 60vh;
+    margin-bottom: 50px;
+    margin-top: 30px;
 }
 
 .what-we-do .heading {
@@ -251,7 +272,6 @@ nav i:hover{
     line-height: 8rem;
     font-size: clamp(1.5rem, 0.7rem + 3vw, 2rem);
     margin-bottom: 30px;
-    margin-top: 30px;
 }
 
 .what-we-do h1{
@@ -262,7 +282,7 @@ nav i:hover{
 .what-we-do p {
     width: 100%;
     text-align: center;
-    color: black;
+    color: #4a4a4a;
     font-size: clamp(0.6rem, 0.3rem + 1.5vw, 1.1rem);
     font-weight: 500;
     font-family: "Montserrat", "serif";
@@ -284,16 +304,32 @@ nav i:hover{
     }
 }
 
-.logo-section{
-    height: 20vh;
+.logo-section {
+    height: 60vh;
 }
+
+.logo-section .heading {
+    padding: 0 7% 0 7%;
+    text-align: center;
+    color: #1F84C6;
+    line-height: 8rem;
+    font-size: clamp(1.5rem, 0.7rem + 3vw, 2rem);
+    margin-bottom: 10px;
+}
+
+.logo-section h1{
+    border-bottom: 2px solid #E35451;
+    font-family: "Montserrat", "serif";
+}
+
 .logos {
     overflow: hidden;
     padding: 60px 0;
     background: white;
     white-space: nowrap;
     position: relative;
-    margin: 0 7%;
+    margin: 7% 7%;
+    height: 20vh;
 }
 
 .logos:before {
@@ -325,9 +361,56 @@ nav i:hover{
     margin: 0 50px;
 }
 
+/*-----------------------Footer---------------------*/
+
+.footer {
+    width: 100%;
+    height: 20vh;
+    background-color: #4a4a4a;
+}
+
+/*-----------------------Embed---------------------*/
+
+
+.outer-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.hidden {
+  display: none;
+}
+
+.video-container {
+    text-align: center;
+    position: relative;
+    width: 60%;
+    max-width: 800px;
+}
+
+#close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
 
 
 /*----------------------------------RESIZING--------------------------------*/
+
+
+
+
 
 @media (width < 870px) {
 
@@ -337,9 +420,9 @@ nav i:hover{
     }
 }
 
-@media (width < 1050px) {
-    nav i {
-        opacity: 1;
+@media (width < 1050px){
+    nav .menu i {
+        display: flex;
     }
 
     .nav-container .links {
@@ -349,9 +432,11 @@ nav i:hover{
     .logos:before, .logos:after{
         width: 50px;
     }
+
+
 }
 
-@media (width < 1500px) {
+@media (width < 1500px){
     .intro .intro-container {
         display: inline;
         justify-content: center;
@@ -365,4 +450,143 @@ nav i:hover{
         justify-content: center;
         margin-top: 2rem;
     }
+
+    .what-we-do {
+        height: 80vh;
+    }
+
+}
+
+@media (width < 600px){
+    .what-we-do {
+        height: 100vh;
+    }
+    .logos-slide img{
+        height: 90px;
+        margin: 0 60px;
+    }
+
+}
+
+@media (width < 500px) {
+
+    .intro {
+        height: 60vh;
+    }
+
+    .logo-section{
+        height: 70vh;
+    }
+
+
+
+    .logos{
+        height: 200px;
+    }
+}
+
+
+
+@media (width < 390px) {
+
+
+}
+
+@media (width < 300px) {
+
+    .logo h1{
+        display: none;
+    }
+
+}
+
+@media (height < 800px) and (height > 650px) {
+    .intro {
+        height: 100vh;
+    }
+
+    .what-we-do {
+        height: 100vh;
+    }
+
+    .logos-slide img{
+        height: 90px;
+        margin: 0 60px;
+    }
+}
+
+@media (height < 650px) and (height > 500px) {
+    .intro {
+        height: 200vh;
+    }
+
+    .what-we-do {
+        height: 150vh;
+    }
+
+    .logo-section{
+        height: 80vh;
+    }
+
+    .logos-slide img{
+        height: 60px;
+        margin: 0 50px;
+    }
+}
+
+@media (height < 500px) and (height > 400px) {
+    .intro .intro-button-container{
+        display: none;
+    }
+
+    .intro h1 {
+        font-size: 60px;
+    }
+
+    .what-we-do {
+        height: 200vh;
+    }
+
+    .logo-section{
+        height: 100vh;
+    }
+
+    .logos-slide img{
+        height: 60px;
+        margin: 0 50px;
+    }
+}
+
+@media (height < 400px)
+{
+
+        .intro {
+            height: 80vh;
+        }
+
+        .intro .intro-button-container{
+            display: none;
+        }
+
+        .intro h1 {
+            font-size: 30px;
+
+        }
+
+        .intro-text {
+            margin-top: 100px;
+        }
+
+        .what-we-do {
+            height: 200vh;
+        }
+
+        .logo-section{
+            height: 120vh;
+        }
+
+        .logos-slide img{
+            height: 60px;
+            margin: 0 50px;
+        }
 }

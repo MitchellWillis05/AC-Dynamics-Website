@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/images/logo/logo.png" type="image/png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/5115542834.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>AC Dynamics | Home</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+                <div class="logo">
+                    <img src="/static/images/logo/logo.png" alt="logo">
+                    <h1>AC Dynamics</h1>
+                </div>
+            </a>
+            <div class="links" >
+                <div class="link" id="home" ><a href="/">HOME</a></div>
+                <div class="link" id="services"><a href="/services">SERVICES</a></div>
+                <div class="link" id="blog"><a href="/blog">BLOG</a></div>
+                <div class="link" id="about"><a href="/about">ABOUT US</a></div>
+                <div class="link" id="contact"><a href="/contact">CONTACT</a></div>
+            </div>
+        </div>
+        <div class="menu">
+            <i class="fa-solid fa-bars hamburg"></i>
+        </div>
+
+        <div class="dropdown">
+            <div class="dropdown-links">
+                <a href="/">HOME</a>
+                <a href="/services">SERVICES</a>
+                <a href="/blog">BLOG</a>
+                <a href="/about">ABOUT US</a>
+                <a href="/contact">CONTACT</a>
+                <div class="cancel">
+                   <i class="fa-solid fa-xmark cancel"></i>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <script>
+        const hamburg = document.querySelector(".hamburg")
+        const cancel = document.querySelector(".cancel")
+        const navbar = document.querySelector(".dropdown")
+
+        hamburg.addEventListener("click", ()=>{
+            navbar.style.transform = "translateY(0px)"
+        })
+
+        cancel.addEventListener("click", ()=>{
+            navbar.style.transform = "translateY(-450px)"
+        })
+    </script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once:true
+        });
+    </script>
+
+</body>
+</html>

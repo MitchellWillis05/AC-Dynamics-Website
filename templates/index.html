@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <title>AC Dynamics | Home</title>
-</head>
-<body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="/static/images/logo/logo.png" alt="logo">
-                <h1>AC Dynamics</h1>
-            </div>
-            <div class="links" >
-                <div class="active-link" data-aos="fade-down" data-aos-duration="800" data-aos-delay="0"><a href="">HOME</a></div>
-                <div class="link" data-aos="fade-down" data-aos-duration="800" data-aos-delay="50"><a href="">SERVICES</a></div>
-                <div class="link" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100"><a href="">BLOG</a></div>
-                <div class="link" data-aos="fade-down" data-aos-duration="800" data-aos-delay="150"><a href="">ABOUT US</a></div>
-                <div class="link" data-aos="fade-down" data-aos-duration="800" data-aos-delay="200"><a href="">CONTACT</a></div>
-            </div>
-        </div>
-        <div class="menu">
-            <i class='bx bx-menu hamburg'></i>
-        </div>
-
-        <div class="dropdown">
-            <div class="dropdown-links">
-                <a href="">HOME</a>
-                <a href="">SERVICES</a>
-                <a href="">BLOG</a>
-                <a href="">ABOUT US</a>
-                <a href="">CONTACT</a>
-                <div class="cancel">
-                   <i class='bx bx-x-circle cancel'></i>
-                </div>
-
-            </div>
-        </div>
-    </nav>
+{% extends "base.html" %}
+{% block content %}
 
     <section class="intro">
         <div class="intro-container">
@@ -51,14 +10,14 @@
                 <h1 class="highlight" data-aos="fade-right" data-aos-duration="800" data-aos-delay="300">Services</h1>
             </div>
             <div class="intro-button-container" data-aos="fade-in" data-aos-duration="1800" data-aos-delay="100">
-                <div class="intro-button-1">
+                <button class="intro-button-1">
                 <p>Find Out More</p>
-                <i class='bx bx-chevron-right-circle'></i>
-            </div>
-            <div class="intro-button">
+                <i class="fa-solid fa-circle-chevron-right"></i>
+            </button>
+            <button class="intro-button" id="show-video">
                 <p>Why Choose Us?</p>
-                <i class='bx bx-play-circle'></i>
-            </div>
+                <i class="fa-solid fa-circle-play"></i>
+            </button>
             </div>
 
 
@@ -70,51 +29,56 @@
             <h1>What We Do</h1>
         </div>
 
-        <div class ="content">
-            <p>
+        <div class ="content" >
+            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
                 At AC Dynamics, we provide expert Heating, Ventilation, and Air Conditioning (HVAC) services for both
                 commercial and residential clients. Whether you're looking to maintain a comfortable home environment
                 or ensure the smooth operation of a large commercial space, our team is dedicated to offering reliable,
                 energy-efficient solutions tailored to your specific needs.
             </p>
             <br>
-            <p>
+            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="50">
                 Our services cover everything from installation to repairs. We handle full HVAC system installations,
                 ensuring your system is optimized for performance and long-term efficiency. If you're facing any issues,
                 our repair team responds quickly to restore your comfort and system functionality.
             </p>
             <br>
-            <p>
+            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                 We also offer comprehensive maintenance services to keep your systems running smoothly throughout the
                 year. Regular maintenance helps extend the life of your equipment and avoid unexpected breakdowns. For
                 those looking to reduce their energy consumption, we provide system upgrades that improve energy
                 efficiency and indoor air quality, helping you save on bills while enhancing your comfort.
             </p>
             <br>
-            <p>
+            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
                 Additionally, our team provides consultation and design services for custom HVAC solutions.
                 Whether it's for a home renovation or a new commercial development, we ensure that your HVAC system is
                 designed to meet your unique requirements.
             </p>
             <br>
-            <p>
+            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                 With years of industry experience, advanced technology, and a commitment to customer satisfaction,
                 AC Dynamics is your trusted partner for creating a comfortable, energy-efficient environment for any space.
             </p>
         </div>
+
+        <br><br>
 
 
 
     </section>
 
     <section class="logo-section">
+        <div class="heading" >
+            <h1>Our Partners</h1>
+        </div>
         <div class="logos">
             <div class="logos-slide">
-                <img src="/static/images/home/panasonic-logo.png" alt="">
-                <img src="/static/images/home/mitsubishi-electric-logo.png" alt="">
-                <img src="/static/images/home/aroflow-logo.png" alt="">
-                <img src="/static/images/home/ABC-logo.png" alt="">
-                <img src="/static/images/home/sitesafe-logo.png" alt="">
+                <img src="/static/images/home/panasonic-logo.png" alt="panasonic">
+                <img src="/static/images/home/mitsubishi-electric-logo.png" alt="mitsubishi">
+                <img src="/static/images/home/aroflow-logo.png" alt="aroflow">
+                <img src="/static/images/home/ABC-logo.png" alt="ABC">
+                <img src="/static/images/home/sitesafe-logo.png" alt="sitesafe">
             </div>
 
             <div class="logos-slide">
@@ -131,24 +95,17 @@
 
     </footer>
 
-    <script>
-        const hamburg = document.querySelector(".hamburg")
-        const cancel = document.querySelector(".cancel")
-        const navbar = document.querySelector(".dropdown")
+    <div id="video-popup" class="hidden">
+        <div class="outer-video-container">
+            <div class="video-container">
+            <span id="close-btn">&times;</span>
+            <iframe id="embedded-video" width="560" height="315" src="https://www.youtube.com/embed/zuOUN-VSI40" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-        hamburg.addEventListener("click", ()=>{
-            navbar.style.transform = "translateY(0px)"
-        })
+            </div>
+        </div>
 
-        cancel.addEventListener("click", ()=>{
-            navbar.style.transform = "translateY(-450px)"
-        })
-    </script>
+    </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-    AOS.init();
-    </script>
+  <script src="/static/scripts/home.js"></script>
 
-</body>
-</html>
+{% endblock %}
