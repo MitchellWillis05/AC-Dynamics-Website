@@ -256,16 +256,16 @@ nav i:hover{
     font-size: 1.5rem;
 }
 
-/*----------------------------------HOME--------------------------------*/
+/*----------------------------------content--------------------------------*/
 
-.what-we-do {
+.content-block {
     width: 100%;
     height: 60vh;
     margin-bottom: 50px;
     margin-top: 30px;
 }
 
-.what-we-do .heading {
+.content-block .heading {
     padding: 0 7% 0 7%;
     text-align: center;
     color: #1F84C6;
@@ -274,12 +274,12 @@ nav i:hover{
     margin-bottom: 30px;
 }
 
-.what-we-do h1{
+.content-block h1{
     border-bottom: 2px solid #E35451;
     font-family: "Montserrat", "serif";
 }
 
-.what-we-do p {
+.content-block p {
     width: 100%;
     text-align: center;
     color: #4a4a4a;
@@ -288,9 +288,80 @@ nav i:hover{
     font-family: "Montserrat", "serif";
 }
 
-.what-we-do .content{
+.content-block .content{
     width: 100%;
     padding: 0 15% 0 15%;
+}
+
+.content-block .split-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*----------------------------------contact--------------------------------*/
+
+.contact-info h2{
+    text-align: center;
+    margin: 10px;
+    color: #1F84C6;
+    border-bottom: solid 1px #E35451;
+
+}
+
+.contact-form {
+
+    padding: 20px;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #9c9c9c;
+    outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;
+}
+
+.contact-form .error {
+    color: #E35451;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.contact-form button {
+    width: 40%;
+    padding: 10px;
+    background-color: #1F84C6;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
 }
 
 /*----------------------------------LOGO SCROLLER--------------------------------*/
@@ -406,6 +477,13 @@ nav i:hover{
 }
 
 
+/*----------------------------------spacing--------------------------------*/
+
+.spacing{
+    width: 100%;
+    height: 10vh;
+}
+
 /*----------------------------------RESIZING--------------------------------*/
 
 
@@ -433,6 +511,14 @@ nav i:hover{
         width: 50px;
     }
 
+    .content-block .split-container{
+        display: inline;
+        justify-content: space-between;
+    }
+
+    .content-block .contact-form{
+        width: auto;
+    }
 
 }
 
@@ -451,14 +537,14 @@ nav i:hover{
         margin-top: 2rem;
     }
 
-    .what-we-do {
+    .content-block {
         height: 80vh;
     }
 
 }
 
 @media (width < 600px){
-    .what-we-do {
+    .content-block {
         height: 100vh;
     }
     .logos-slide img{
@@ -505,13 +591,17 @@ nav i:hover{
         height: 100vh;
     }
 
-    .what-we-do {
+    .content-block {
         height: 100vh;
     }
 
     .logos-slide img{
         height: 90px;
         margin: 0 60px;
+    }
+
+    .spacing{
+        height: 30vh;
     }
 }
 
@@ -520,7 +610,7 @@ nav i:hover{
         height: 200vh;
     }
 
-    .what-we-do {
+    .content-block {
         height: 150vh;
     }
 
@@ -531,6 +621,10 @@ nav i:hover{
     .logos-slide img{
         height: 60px;
         margin: 0 50px;
+    }
+
+    .spacing{
+        height: 30vh;
     }
 }
 
@@ -543,7 +637,7 @@ nav i:hover{
         font-size: 60px;
     }
 
-    .what-we-do {
+    .content-block {
         height: 200vh;
     }
 
@@ -554,6 +648,10 @@ nav i:hover{
     .logos-slide img{
         height: 60px;
         margin: 0 50px;
+    }
+
+        .spacing{
+        height: 40vh;
     }
 }
 
@@ -577,7 +675,7 @@ nav i:hover{
             margin-top: 100px;
         }
 
-        .what-we-do {
+        .content-block {
             height: 200vh;
         }
 
@@ -588,5 +686,9 @@ nav i:hover{
         .logos-slide img{
             height: 60px;
             margin: 0 50px;
+        }
+
+        .spacing{
+            height: 50vh;
         }
 }

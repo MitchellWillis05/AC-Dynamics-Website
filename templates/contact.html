@@ -1,6 +1,59 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <section class="spacing">
+
+    </section>
+
+     <section class="content-block">
+        <div class="heading">
+            <h1>Contact Us</h1>
+        </div>
+
+         <div class="content">
+             <p>To contact us for general enquiries,
+                 please reach out via the form below or use the details provided.
+                 We will be happy to assist you with any enquiries.</p>
+             <br><br>
+            <div class="split-container">
+                <form id="contact-form" class="contact-form">
+                    <input type="email" id="email" name="email" placeholder="Email"><br>
+
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number"><br>
+
+                    <input id="name" name="name" placeholder="Name"><br>
+
+                    <textarea id="message" name="message" rows="5" placeholder="Message"></textarea><br>
+
+                    <p id="error" class="error"></p>
+
+                    <button type="button" value="Submit" onclick="submit_entry()">Submit</button>
+                </form>
+
+                <div class="contact-info">
+                    <h2>Contact Email</h2>
+                    <p>email@account.com</p>
+                    <h2>Contact Phone Number</h2>
+                    <p>0800 0000 00</p>
+                    <h2>Street Address</h2>
+                    <p>company address</p>
+                </div>
+
+            </div>
+
+         </div>
+
+
+    </section>
+    <section class="spacing">
+
+    </section>
+    <section class="spacing">
+
+    </section>
+    <section class="spacing">
+
+    </section>
 
     <script src="/static/scripts/contact.js"></script>
 {% endblock %}
