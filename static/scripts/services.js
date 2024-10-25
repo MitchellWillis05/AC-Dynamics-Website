@@ -3,3 +3,104 @@ document.addEventListener("DOMContentLoaded", function() {
     servicesLink.classList.add("active-link");
 });
 
+document.getElementById('single-room').addEventListener('click', function () {
+    const singleForm = document.getElementById('calculator-single');
+    const houseForm = document.getElementById('calculator-house');
+
+    // Hide the whole house form instantly
+    if (houseForm.classList.contains('show')) {
+        houseForm.classList.remove('show');
+        houseForm.style.display = 'none'; // Set display to none immediately
+    }
+
+    // Show the single room form
+    singleForm.style.display = 'block'; // Set display to block first
+    setTimeout(() => {
+        singleForm.classList.add('show'); // Add show class to fade in
+    }, 10); // Short delay to trigger the transition
+});
+
+document.getElementById('whole-house').addEventListener('click', function () {
+    const singleForm = document.getElementById('calculator-single');
+    const houseForm = document.getElementById('calculator-house');
+
+    // Hide the single room form instantly
+    if (singleForm.classList.contains('show')) {
+        singleForm.classList.remove('show');
+        singleForm.style.display = 'none'; // Set display to none immediately
+    }
+
+    // Show the house form
+    houseForm.style.display = 'block'; // Set display to block first
+    setTimeout(() => {
+        houseForm.classList.add('show'); // Add show class to fade in
+    }, 10); // Short delay to trigger the transition
+});
+
+document.getElementById('single-room').addEventListener('click', function () {
+    // ... existing code ...
+    // Change button styles
+    this.classList.add('button-selected');
+    this.classList.remove('button-unselected');
+    document.getElementById('whole-house').classList.add('button-unselected');
+    document.getElementById('whole-house').classList.remove('button-selected');
+});
+
+document.getElementById('whole-house').addEventListener('click', function () {
+    // ... existing code ...
+    // Change button styles
+    this.classList.add('button-selected');
+    this.classList.remove('button-unselected');
+    document.getElementById('single-room').classList.add('button-unselected');
+    document.getElementById('single-room').classList.remove('button-selected');
+});
+
+
+async function submit_single(){
+    const form = document.getElementById('calculator-single')
+    const formData = new FormData(form);
+    const error = document.getElementById('error');
+    const submitButton = document.getElementById("submit-single")
+
+    submitButton.innerText = "Calculating"
+    submitButton.disabled = true;
+    submitButton.classList.add('loading');
+
+
+    try
+    {
+        const response = await fetch('/services',
+            {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok)
+            {
+                const result = await response.json();
+                error.classList.remove("error")
+                error.classList.add("success")
+                error.innerText = result.message;
+                form.reset();
+            }
+            else
+            {
+                const result = await response.json();
+                error.classList.remove("success")
+                error.classList.add("error")
+                error.innerText = result.message || 'Failed to send message.';
+            }
+    }
+
+    catch (error)
+    {
+        console.error('Error submitting entry:', error);
+        error.innerText = 'An error occurred, please try again.';
+    }
+
+    submitButton.innerText = "Calculate Heating"
+    submitButton.disabled = false;
+    submitButton.classList.remove('loading');
+}
+
+

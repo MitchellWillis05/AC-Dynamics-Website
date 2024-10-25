@@ -10,3 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const servicesLink = document.getElementById("home");
     servicesLink.classList.add("active-link");
 });
+
+document.getElementById('find-out-more').addEventListener('click', function() {
+    window.location.href = '/services';
+});

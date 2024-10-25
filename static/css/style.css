@@ -348,6 +348,13 @@ nav i:hover{
     padding-bottom: 20px;
 }
 
+.contact-form .success {
+    color: #118a06;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 .contact-form button {
     width: 40%;
     padding: 10px;
@@ -358,10 +365,253 @@ nav i:hover{
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+
 }
 
 .contact-form button:hover {
     background-color: #0056b3;
+}
+
+
+
+/*----------------------------------services--------------------------------*/
+.service-split-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.curved-container {
+    margin: 5vw; /* Use viewport width units for margin */
+    width: 20vw; /* Proportional width to the viewport */
+    height: 26vw; /* Proportional height to the viewport */
+    border-radius: 2vw; /* Proportional border radius */
+    position: relative;
+    box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.6); /* Proportional shadow */
+    display: inline-block; /* Ensures inline behavior while maintaining block-level controls */
+    text-align: center;
+    padding: 2vw; /* Proportional padding */
+}
+
+.curved-container img {
+    width: 100%; /* The image will remain responsive to the container */
+    border-radius: 1vw; /* Proportional border radius for the image */
+}
+
+.curved-container h2 {
+    margin: 0;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+    font-weight: bold;
+    color: #1F84C6;
+    font-size: 1.5vw; /* Proportional font size */
+}
+
+.curved-container p {
+    font-size: clamp(0.5vw, 0.6vw + 0.2rem, 0.7vw); /* Keep font size proportional and responsive */
+}
+
+.curved-container a {
+    color: #E35451;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2vw; /* Proportional bottom spacing */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.curved-container i {
+    transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+.curved-container a:hover i {
+    transform: translateX(+50%);
+}
+
+/*----------------------------------wattage calculator--------------------------------*/
+
+/* Form Container for Single Room and Whole House Calculators */
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+}
+
+/* Form Titles */
+.calculator-container h2 {
+    text-align: center;
+    margin: 10px;
+    color: #1F84C6;
+    border-bottom: solid 1px #E35451;
+    padding-bottom: 10px;
+}
+
+/* General Form Style */
+.calculator-single,
+.calculator-house {
+    padding: 20px;
+    width: 50%;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    opacity: 0; /* Start invisible */
+    display: none; /* Initially hidden */
+    transition: opacity 0.5s ease; /* Transition effect for opacity */
+}
+
+/* Show form */
+.calculator-single.show,
+.calculator-house.show {
+    display: block; /* Display block when shown */
+    opacity: 1; /* Fully visible */
+}
+
+/* Inputs and Selects Styling */
+.calculator-single input,
+.calculator-house input,
+.calculator-single select,
+.calculator-house select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus State for Inputs and Selects */
+.calculator-single input:focus,
+.calculator-house input:focus,
+.calculator-single select:focus,
+.calculator-house select:focus {
+    border-color: #9c9c9c;
+    outline: none;
+}
+
+/* Placeholder Styling */
+.calculator-single input::placeholder,
+.calculator-house input::placeholder,
+.calculator-single select::placeholder,
+.calculator-house select::placeholder {
+    color: #999; /* Placeholder color */
+}
+
+/* Style for Select Elements to Share Placeholder Color */
+.calculator-single select,
+.calculator-house select {
+    color: #999; /* Text color to match placeholder */
+    margin-right: 20px; /* Right margin for dropdown arrows */
+}
+
+/* Error and Success Messages */
+.calculator-single .error,
+.calculator-house .error {
+    color: #E35451;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.calculator-single .success,
+.calculator-house .success {
+    color: #118a06;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Button Styling */
+.calculator-single button,
+.calculator-house button,
+.button-selected,
+.button-unselected {
+    width: 100%; /* Full width for buttons */
+    padding: 10px;
+    border-radius: 25px; /* Rounded corners */
+    font-size: 16px; /* Same text size */
+    transition: background-color 0.3s ease;
+    border: 2px solid #ccc; /* Border to match input fields */
+    cursor: pointer;
+    color: #999999;
+}
+
+/* Default Button Style */
+.button-unselected {
+    background-color: #f9f9f9; /* Same style as input boxes */
+    color: #999; /* Same color as placeholder text */
+}
+
+/* Selected Button Style */
+.button-selected {
+    background-color: #1F84C6; /* Blue for selected button */
+    color: white; /* White text for selected button */
+}
+
+/* Hover State for Buttons */
+.calculator-single button:hover,
+.calculator-house button:hover {
+    background-color: #0056b3; /* Hover effect */
+    color: white;
+}
+
+.button-container {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: center; /* Center the buttons */
+    margin-bottom: 20px; /* Add space below the buttons */
+}
+
+/* Button Styling Adjustments */
+.button-container button {
+    margin: 0 10px; /* Add horizontal margin between buttons */
+    width: 10rem;
+}
+
+
+
+* Input and Selects Styling
+.calculator-single input,
+.calculator-house input,
+.calculator-single select,
+.calculator-house select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    color: black; /* Default text color for inputs */
+}
+
+/* Focus State for Inputs and Selects */
+.calculator-single input:focus,
+.calculator-house input:focus,
+.calculator-single select:focus,
+.calculator-house select:focus {
+    border-color: #9c9c9c;
+    outline: none;
+    color: black; /* Text color when focused */
+}
+
+/* Placeholder Styling */
+.calculator-single input::placeholder,
+.calculator-house input::placeholder,
+.calculator-single select::placeholder,
+.calculator-house select::placeholder {
+    color: #999; /* Placeholder color */
+}
+
+/* Change text color on input */
+.calculator-single input:valid,
+.calculator-house input:valid,
+.calculator-single select:valid,
+.calculator-house select:valid {
+    color: black; /* Text color for valid inputs */
 }
 
 /*----------------------------------LOGO SCROLLER--------------------------------*/
@@ -484,6 +734,16 @@ nav i:hover{
     height: 10vh;
 }
 
+.large-spacing{
+    width: 100%;
+    height: 20vh;
+}
+
+.contact-form .loading {
+    cursor: wait;
+    background-color: #0056b3;
+}
+
 /*----------------------------------RESIZING--------------------------------*/
 
 
@@ -496,6 +756,7 @@ nav i:hover{
     .intro .intro-button-container {
         display: none;
     }
+
 }
 
 @media (width < 1050px){
@@ -520,6 +781,7 @@ nav i:hover{
         width: auto;
     }
 
+
 }
 
 @media (width < 1500px){
@@ -541,6 +803,48 @@ nav i:hover{
         height: 80vh;
     }
 
+    .service-split-container {
+        display: block;
+        text-align: center;
+    }
+
+    .curved-container {
+        width: 45vw; /* Adjust the width relative to the viewport for smaller screens */
+        height: 44vw; /* Adjust the height proportionally */
+    }
+
+    .curved-container img {
+        width: 100%;
+    }
+
+    .curved-container h2{
+        font-size: 3vw; /* Larger font size for smaller screens */
+    }
+
+    .curved-container a {
+        bottom: 1vw; /* Proportional bottom spacing for smaller screens */
+        margin-bottom: 30px;
+    }
+    .curved-container p {
+        display: none;
+    }
+
+    .large-spacing{
+        height: 200vh;
+    }
+
+}
+
+@media (width < 700px){
+    .curved-container {
+        width: 50vw; /* Adjust the width relative to the viewport for smaller screens */
+        height: 50vw; /* Adjust the height proportionally */
+        margin: 3vw;
+    }
+
+    .large-spacing{
+        height: 100vh;
+    }
 }
 
 @media (width < 600px){
@@ -550,6 +854,11 @@ nav i:hover{
     .logos-slide img{
         height: 90px;
         margin: 0 60px;
+    }
+
+    .curved-container {
+        width: 45vw; /* Adjust the width relative to the viewport for smaller screens */
+        height: 55vw; /* Adjust the height proportionally */
     }
 
 }
@@ -564,7 +873,10 @@ nav i:hover{
         height: 70vh;
     }
 
-
+    .curved-container {
+        width: 45vw; /* Adjust the width relative to the viewport for smaller screens */
+        height: 60vw; /* Adjust the height proportionally */
+    }
 
     .logos{
         height: 200px;
@@ -603,6 +915,11 @@ nav i:hover{
     .spacing{
         height: 30vh;
     }
+
+    .large-spacing{
+        width: 100%;
+        height: 50vh;
+    }
 }
 
 @media (height < 650px) and (height > 500px) {
@@ -625,6 +942,11 @@ nav i:hover{
 
     .spacing{
         height: 30vh;
+    }
+
+    .large-spacing{
+        width: 100%;
+        height: 50vh;
     }
 }
 
@@ -652,6 +974,11 @@ nav i:hover{
 
         .spacing{
         height: 40vh;
+    }
+
+    .large-spacing{
+        width: 100%;
+        height: 50vh;
     }
 }
 
@@ -689,6 +1016,11 @@ nav i:hover{
         }
 
         .spacing{
+            height: 50vh;
+        }
+
+        .large-spacing{
+            width: 100%;
             height: 50vh;
         }
 }

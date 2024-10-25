@@ -19,9 +19,16 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/services')
+@app.route('/services', methods=['GET', 'POST'])
 def services():
-    return render_template("services.html")
+    if request.method == 'GET':
+        return render_template("services.html")
+    elif request.method == 'POST':
+        house_area = request.form['house-area']
+        house_height = request.form['house-height']
+        #if house_height == '':
+
+
 
 
 @app.route('/blog')
@@ -38,7 +45,7 @@ def about():
 def contact():
     if request.method == 'GET':
         return render_template("contact.html")
-    if request.method == 'POST':
+    elif request.method == 'POST':
         email = request.form['email']
         phone = request.form['phone']
         name = request.form['name']
@@ -56,7 +63,7 @@ def contact():
         elif len(message) > 500:
             return jsonify({'message': 'Message too long.'}), 400
         else:
-            msg = Message('Message from ' + name, sender='no-reply@domain.com', recipients=["mitchiwillis@gmail.com"])
+            msg = Message('Message from ' + name, sender='no-reply@domain.com', recipients=["WebsiteEnquiry@acdynamics.co.nz"])
             msg.body = ("You have received a Message from " + name + "\n\n" + "Message: " + message + "\n\n"
                         + "Email: " + email + "\n" + "Phone number: " + phone + "\n\n\n" + "*DO NOT REPLY*")
             mail.send(msg)

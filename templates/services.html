@@ -1,6 +1,132 @@
 {% extends "base.html" %}
 {% block content %}
 
+     <section class="spacing">
+
+    </section>
+
+    <section class="content-block">
+        <div class="heading">
+            <h1>Our Services</h1>
+        </div>
+        <div class="service-split-container">
+
+            <div class="curved-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+                <img src="/static/images/services/domestic-heatpump.png" alt="domestic">
+                <h2>Domestic</h2>
+                <p>AC Dynamics provides professional installation, maintenance, and repair services for energy-efficient
+                    domestic heat pumps, ensuring optimal home heating and cooling performance.</p>
+                <a id="domestic-pump" >Find out more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="curved-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="50">
+                <img src="/static/images/services/industrial-heatpump-resize.png" alt="domestic">
+                <h2>Industrial</h2>
+                <p>AC Dynamics provides expert installation, maintenance, and repair services for industrial heat pumps,
+                    delivering energy-efficient heating and cooling solutions for large-scale facilities.</p>
+                <a id="industrial-pump" >Find out more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="curved-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                <img src="/static/images/services/domestic-heatpump.png" alt="domestic">
+                <h2>Maintenance</h2>
+                <p>AC Dynamics provides expert service, maintenance, and repairs for HVAC systems, ensuring optimal
+                    performance and energy efficiency through regular inspections and timely interventions.</p>
+                <a id="service-maintenance" >Find out more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="large-spacing">
+
+    </section>
+
+    <section class="content-block">
+        <div class="heading">
+            <h1>What's right for me?</h1>
+        </div>
+        <p>What do you want to heat?</p>
+        <div class="calculator-container">
+            <form class="calculator-room-select" id="calculator-room-select">
+                <div class="button-container">
+                    <button type="button" id="single-room" class="button-unselected">Single Room</button>
+                    <button type="button" id="whole-house" class="button-unselected">Whole House</button>
+                </div>
+            </form>
+
+            <!-- Single Room Form -->
+            <form class="calculator-single" id="calculator-single">
+                <input type="number" id="width" name="width" step="0.1" placeholder="Room Width (m)">
+                <input type="number" id="length" name="length" step="0.1" placeholder="Room Length (m)">
+                <input type="number" id="height" name="height" step="0.1" placeholder="Room Height (m)">
+
+                <select id="outdoor-temp" name="outdoor-temp">
+                    <option value="" disabled selected>Select Region</option>
+                    <option value="4.5">Auckland</option>
+                    <option value="0.5">Christchurch</option>
+                    <option value="2.7">Wellington</option>
+                    <option value="-2.1">Queenstown</option>
+                    <option value="1.8">Dunedin</option>
+                    <option value="0.0">Hamilton</option>
+                    <option value="-1.6">Rotorua</option>
+                    <option value="-3.1">Taupo</option>
+                    <option value="-2.3">Invercargill</option>
+                    <option value="0.4">Napier</option>
+                </select>
+
+                <select id="insulation-single" name="insulation-single">
+                    <option value="" disabled selected>Insulation Level</option>
+                    <option value="1.8">Poorly Insulated</option>
+                    <option value="1.3">Partially Insulated</option>
+                    <option value="0.9">Fully Insulated</option>
+                </select>
+                <p id="error" class="error"></p>
+                <button type="button" id="submit-single" onclick="submit_single()">Calculate Heating</button>
+            </form>
+
+            <!-- Whole House Form -->
+            <form class="calculator-house" id="calculator-house">
+                <input type="number" id="house-area" name="house-area" step="0.1" placeholder="House Area (m²)">
+                <input type="number" id="house-height" name="house-height" step="0.1" placeholder="House Height (m)">
+
+                <select id="outdoor-temp-house" name="outdoor-temp-house">
+                    <option value="" disabled selected>Select Region</option>
+                    <option value="4.5">Auckland</option>
+                    <option value="0.5">Christchurch</option>
+                    <option value="2.7">Wellington</option>
+                    <option value="-2.1">Queenstown</option>
+                    <option value="1.8">Dunedin</option>
+                    <option value="0.0">Hamilton</option>
+                    <option value="-1.6">Rotorua</option>
+                    <option value="-3.1">Taupo</option>
+                    <option value="-2.3">Invercargill</option>
+                    <option value="0.4">Napier</option>
+                </select>
+
+                <select id="insulation-house" name="insulation-house">
+                    <option value="" disabled selected>Insulation Level</option>
+                    <option value="1.8">Poorly Insulated</option>
+                    <option value="1.3">Partially Insulated</option>
+                    <option value="0.9">Fully Insulated</option>
+                </select>
+
+                <button type="button" id="submit-house">Calculate Heating</button>
+            </form>
+        </div>
+
+    </section>
+
+    <section class="spacing">
+
+    </section>
+
+    <section class="spacing">
+
+    </section>
+
+    <section class="spacing">
+
+    </section>
 
     <script src="/static/scripts/services.js"></script>
 {% endblock %}
