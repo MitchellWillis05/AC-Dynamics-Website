@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import validation as vd
+import calculator as calc
 from flask_mail import Mail, Message
 import os
 
@@ -24,11 +25,53 @@ def services():
     if request.method == 'GET':
         return render_template("services.html")
     elif request.method == 'POST':
-        house_area = request.form['house-area']
-        house_height = request.form['house-height']
-        #if house_height == '':
+        return jsonify({'message': 'METHOD NOT ALLOWED'}), 405
 
 
+@app.route('/calculate', methods=['GET', 'POST'])
+def calculate():
+    if request.method == 'GET':
+        return render_template("services.html")
+    elif request.method == 'POST':
+        form_type = request.form.get("form_type")
+
+        try:
+            if form_type == "single-room":
+                # Convert values to float and check for negatives
+                width = float(request.form["width"])
+                length = float(request.form["length"])
+                height = float(request.form["height"])
+                outdoor_temp = float(request.form["outdoor-temp"])
+                insulation_single = float(request.form["insulation-single"])
+
+                # Validate inputs
+                if any(value < 0 for value in [width, length, height]):
+                    return jsonify({'message': 'Error: All values must be non-negative.'}), 400
+
+                # Calculate kW for single room
+                kw = calc.calculate_heating_single(width, length, height, outdoor_temp, insulation_single)
+                return jsonify({'message': 'Success, kW calculated', 'kw': kw}), 200
+
+            elif form_type == "whole-house":
+                # Convert values to float and check for negatives
+                house_area = float(request.form["house-area"])
+                house_height = float(request.form["house-height"])
+                outdoor_temp = float(request.form["outdoor-temp-house"])
+                insulation_single = float(request.form["insulation-house"])
+
+                # Validate inputs
+                if any(value < 0 for value in [house_area, house_height]):
+                    return jsonify({'message': 'Error: All values must be non-negative.'}), 400
+
+                # Calculate kW for whole house
+                kw = calc.calculate_heating_whole_house(house_area, house_height, outdoor_temp, insulation_single)
+                return jsonify({'message': 'Success, kW calculated', 'kw': kw}), 200
+
+            else:
+                return jsonify({'message': 'Invalid form type'}), 400
+
+        except ValueError:
+            return jsonify({'message': 'Error: Invalid input, please ensure all values are entered.'}), 400
 
 
 @app.route('/blog')

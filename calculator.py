@@ -1,24 +1,35 @@
-def calculate_heating_kw(width, length, height, indoor_temp, outdoor_temp, insulation_factor):
+def calculate_heating_single(width, length, height, outdoor_temp, insulation_factor):
     # Step 1: Calculate room volume
-    room_volume = width * length * height
+    room_volume = float(width) * float(length) * float(height)
 
     # Step 2: Calculate temperature difference
-    temp_difference = indoor_temp - outdoor_temp
+    temp_difference = 20 - float(outdoor_temp)
 
     # Step 3: Calculate the heating requirement in kW
-    heating_kw = (room_volume * temp_difference * insulation_factor) / 3412
+    heating_kw = (room_volume * temp_difference * float(insulation_factor)) / 3412
 
     return heating_kw
 
 
-# Example usage
-width = 5  # meters
-length = 6  # meters
-height = 2.5  # meters
-indoor_temp = 22  # degrees Celsius
-outdoor_temp = 5  # degrees Celsius
-insulation_factor = 1.3  # Average insulation
+def calculate_heating_whole_house(area, height, outdoor_temp, insulation_factor):
+    # Convert all inputs to floats
+    area = float(area)
+    height = float(height)
+    outdoor_temp = float(outdoor_temp)
+    insulation_factor = float(insulation_factor)
 
-# Calculate heating kW
-heating_required = calculate_heating_kw(width, length, height, indoor_temp, outdoor_temp, insulation_factor)
-print(f"Heating required: {heating_required:.3f} kW")
+    # Step 1: Calculate house volume
+    house_volume = area * height
+
+    # Step 2: Calculate temperature difference
+    temp_difference = 20 - outdoor_temp
+
+    # Step 3: Calculate the heating requirement in kW
+    heating_kw = (house_volume * temp_difference * insulation_factor) / 3412
+
+    return heating_kw
+
+
+
+
+

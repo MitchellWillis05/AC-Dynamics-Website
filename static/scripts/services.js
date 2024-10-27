@@ -40,6 +40,8 @@ document.getElementById('whole-house').addEventListener('click', function () {
 document.getElementById('single-room').addEventListener('click', function () {
     // ... existing code ...
     // Change button styles
+    const error = document.getElementById('error');
+    error.innerText = '';
     this.classList.add('button-selected');
     this.classList.remove('button-unselected');
     document.getElementById('whole-house').classList.add('button-unselected');
@@ -49,6 +51,8 @@ document.getElementById('single-room').addEventListener('click', function () {
 document.getElementById('whole-house').addEventListener('click', function () {
     // ... existing code ...
     // Change button styles
+    const error = document.getElementById('error');
+    error.innerText = '';
     this.classList.add('button-selected');
     this.classList.remove('button-unselected');
     document.getElementById('single-room').classList.add('button-unselected');
@@ -69,7 +73,7 @@ async function submit_single(){
 
     try
     {
-        const response = await fetch('/services',
+        const response = await fetch('/calculate',
             {
                 method: 'POST',
                 body: formData
@@ -80,7 +84,54 @@ async function submit_single(){
                 const result = await response.json();
                 error.classList.remove("error")
                 error.classList.add("success")
-                error.innerText = result.message;
+                error.innerText = result.message + result.kw;
+                form.reset();
+            }
+            else
+            {
+                const result = await response.json();
+                error.classList.remove("success")
+                error.classList.add("error")
+                error.innerText = result.message || 'Failed to send message.';
+            }
+    }
+
+    catch (error)
+    {
+        console.error('Error submitting entry:', error);
+        error.innerText = 'An error occurred, please try again.';
+    }
+
+    submitButton.innerText = "Calculate Heating"
+    submitButton.disabled = false;
+    submitButton.classList.remove('loading');
+}
+
+async function submit_house(){
+    const form = document.getElementById('calculator-house')
+    const formData = new FormData(form);
+    const error = document.getElementById('error');
+    const submitButton = document.getElementById("submit-house")
+
+    submitButton.innerText = "Calculating"
+    submitButton.disabled = true;
+    submitButton.classList.add('loading');
+
+
+    try
+    {
+        const response = await fetch('/calculate',
+            {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok)
+            {
+                const result = await response.json();
+                error.classList.remove("error")
+                error.classList.add("success")
+                error.innerText = result.message + result.kw;
                 form.reset();
             }
             else
