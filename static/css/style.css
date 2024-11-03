@@ -159,6 +159,7 @@ nav i:hover{
 
 .intro{
     width: 100%;
+    padding: 120px 0;
     height: auto;
     color: white;
     display: flex;
@@ -207,7 +208,7 @@ nav i:hover{
     align-items: center;
     justify-content: space-between;
     width: 80%;
-    margin: 9rem 0;
+
 }
 
 .intro .intro-button-container {
@@ -263,7 +264,7 @@ nav i:hover{
     width: 100%;
     height: auto;
     margin-bottom: 50px;
-    margin-top: 30px;
+    padding-top: 100px;
 }
 
 .content-block .heading {
@@ -378,20 +379,23 @@ nav i:hover{
 /*----------------------------------services--------------------------------*/
 .service-split-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap
+    text-align: center;
+    align-items: center;
 }
 
 .curved-container {
     margin: 5vw; /* Use viewport width units for margin */
-    width: 18vw; /* Proportional width to the viewport */
-    height: 24vw; /* Proportional height to the viewport */
+    width: 20rem; /* Proportional width to the viewport */
+    min-height: fit-content;
+    height: auto; /* Proportional height to the viewport */
     border-radius: 2vw; /* Proportional border radius */
-    position: relative;
     box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.6); /* Proportional shadow */
-    display: inline-block; /* Ensures inline behavior while maintaining block-level controls */
+    display: inline-block;
+    flex-direction: column;
     text-align: center;
-    padding: 2vw; /* Proportional padding */
+    padding: 2rem; /* Proportional padding */
 }
 
 .curved-container img {
@@ -401,25 +405,25 @@ nav i:hover{
 
 .curved-container h2 {
     margin: 0;
-    padding-bottom: 1vw;
-    padding-top: 1vw;
+    padding-bottom: 1vw; /* Can be converted if needed */
+    padding-top: 1vw; /* Can be converted if needed */
     font-weight: bold;
     color: #1F84C6;
-    font-size: 1.5vw; /* Proportional font size */
+    font-size: 1.5rem; /* Converted from 1.5vw */
 }
 
 .curved-container p {
-    font-size: clamp(0.5vw, 0.6vw + 0.2rem, 0.7vw); /* Keep font size proportional and responsive */
+    padding-bottom: 20px;
+    font-size: 0.8rem; /* Converted from 1vw */
 }
 
 .curved-container a {
     color: #E35451;
     cursor: pointer;
-    position: absolute;
-    bottom: 2vw; /* Proportional bottom spacing */
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: auto; /* Pushes the <a> tag to the bottom */
+    text-align: center; /* Center align the text if needed */
 }
+
 
 .curved-container i {
     transition: background-color 0.5s ease, transform 0.3s ease;
@@ -782,10 +786,7 @@ nav i:hover{
         width: auto;
     }
 
-    .service-split-container {
-        display: block;
-        text-align: center;
-    }
+
 }
 
 @media (width < 1500px){
@@ -803,30 +804,16 @@ nav i:hover{
         margin-top: 2rem;
     }
 
-
-
-
-
-    .curved-container {
-        width: 45vw; /* Adjust the width relative to the viewport for smaller screens */
-        height: 44vw; /* Adjust the height proportionally */
+       .service-split-container {
+        flex-direction: row; /* Switch to inline display */
+        flex-wrap: wrap;
     }
 
-    .curved-container img {
-        width: 100%;
-    }
 
-    .curved-container h2{
-        font-size: 3vw; /* Larger font size for smaller screens */
-    }
 
-    .curved-container a {
-        bottom: 1vw; /* Proportional bottom spacing for smaller screens */
-        margin-bottom: 30px;
-    }
-    .curved-container p {
-        display: none;
-    }
+
+
+
 
     .large-spacing{
         height: 200vh;
@@ -835,11 +822,7 @@ nav i:hover{
 }
 
 @media (width < 700px){
-    .curved-container {
-        width: 50vw; /* Adjust the width relative to the viewport for smaller screens */
-        height: 50vw; /* Adjust the height proportionally */
-        margin: 3vw;
-    }
+
 
     .large-spacing{
         height: 100vh;
@@ -853,10 +836,7 @@ nav i:hover{
         margin: 0 60px;
     }
 
-    .curved-container {
-        width: 45vw; /* Adjust the width relative to the viewport for smaller screens */
-        height: 55vw; /* Adjust the height proportionally */
-    }
+
 
 }
 
@@ -868,10 +848,7 @@ nav i:hover{
         height: 70vh;
     }
 
-    .curved-container {
-        width: 45vw; /* Adjust the width relative to the viewport for smaller screens */
-        height: 60vw; /* Adjust the height proportionally */
-    }
+
 
     .logos{
         height: 200px;
