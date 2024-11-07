@@ -6,11 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
 document.getElementById('single-room').addEventListener('click', function () {
     const singleForm = document.getElementById('calculator-single');
     const houseForm = document.getElementById('calculator-house');
+    const rating_circle = document.getElementById("rating-circle")
 
     // Hide the whole house form instantly
     if (houseForm.classList.contains('show')) {
         houseForm.classList.remove('show');
         houseForm.style.display = 'none'; // Set display to none immediately
+        rating_circle.style.display = "none";
     }
 
     // Show the single room form
@@ -23,11 +25,13 @@ document.getElementById('single-room').addEventListener('click', function () {
 document.getElementById('whole-house').addEventListener('click', function () {
     const singleForm = document.getElementById('calculator-single');
     const houseForm = document.getElementById('calculator-house');
+    const rating_circle = document.getElementById("rating-circle")
 
     // Hide the single room form instantly
     if (singleForm.classList.contains('show')) {
         singleForm.classList.remove('show');
         singleForm.style.display = 'none'; // Set display to none immediately
+        rating_circle.style.display = "none";
     }
 
     // Show the house form
@@ -65,6 +69,8 @@ async function submit_single(){
     const formData = new FormData(form);
     const error = document.getElementById('error');
     const submitButton = document.getElementById("submit-single")
+    const rating_circle = document.getElementById("rating-circle")
+    const rating_text = document.getElementById("rating-text")
 
     submitButton.innerText = "Calculating"
     submitButton.disabled = true;
@@ -84,7 +90,9 @@ async function submit_single(){
                 const result = await response.json();
                 error.classList.remove("error")
                 error.classList.add("success")
-                error.innerText = result.message + result.kw;
+                rating_circle.style.display = "flex";
+                rating_text.innerText = "KW: " + result.kw
+                error.innerText = "(Energy required to heat your room.)"
                 form.reset();
             }
             else
@@ -92,6 +100,7 @@ async function submit_single(){
                 const result = await response.json();
                 error.classList.remove("success")
                 error.classList.add("error")
+                rating_circle.style.display = "none";
                 error.innerText = result.message || 'Failed to send message.';
             }
     }
@@ -112,6 +121,8 @@ async function submit_house(){
     const formData = new FormData(form);
     const error = document.getElementById('error');
     const submitButton = document.getElementById("submit-house")
+    const rating_circle = document.getElementById("rating-circle")
+    const rating_text = document.getElementById("rating-text")
 
     submitButton.innerText = "Calculating"
     submitButton.disabled = true;
@@ -131,7 +142,9 @@ async function submit_house(){
                 const result = await response.json();
                 error.classList.remove("error")
                 error.classList.add("success")
-                error.innerText = result.message + result.kw;
+                rating_circle.style.display = "flex";
+                rating_text.innerText = "KW: " + result.kw
+                error.innerText = "(Energy required to heat your house.)"
                 form.reset();
             }
             else

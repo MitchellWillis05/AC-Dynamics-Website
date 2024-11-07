@@ -47,9 +47,14 @@ def calculate():
                 # Validate inputs
                 if any(value < 0 for value in [width, length, height]):
                     return jsonify({'message': 'Error: All values must be non-negative.'}), 400
+                if any(value > 100 for value in [width, length, height]):
+                    return jsonify({'message': 'Error: Values are too high.'}), 400
 
                 # Calculate kW for single room
                 kw = calc.calculate_heating_single(width, length, height, outdoor_temp, insulation_single)
+                kw = round(kw, 1)
+                if kw < 0.1:
+                    kw = 0.1
                 return jsonify({'message': 'Success, kW calculated', 'kw': kw}), 200
 
             elif form_type == "whole-house":
@@ -62,9 +67,14 @@ def calculate():
                 # Validate inputs
                 if any(value < 0 for value in [house_area, house_height]):
                     return jsonify({'message': 'Error: All values must be non-negative.'}), 400
+                if any(value > 100 for value in [house_area, house_height]):
+                    return jsonify({'message': 'Error: Values are too high.'}), 400
 
                 # Calculate kW for whole house
                 kw = calc.calculate_heating_whole_house(house_area, house_height, outdoor_temp, insulation_single)
+                kw = round(kw, 1)
+                if kw < 0.1:
+                    kw = 0.1
                 return jsonify({'message': 'Success, kW calculated', 'kw': kw}), 200
 
             else:
