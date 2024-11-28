@@ -8,9 +8,7 @@
     box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
-    display: none;
-}
+
 
 body {
     width: 100%;
@@ -23,14 +21,53 @@ body {
 nav{
     position: absolute;
     width: 100%;
-    height: 100px;
+    height: 120px;
     background-color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+nav .above-header{
+    height: 40%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+nav .contact-container{
+    display: flex;
+    align-items: center;
+}
+
+.contact-container i {
+    color: #E35451;
+    font-size: 0.8rem;
+    margin: 0 10px 0 30px;
+    padding: 2px 0;
+    border-bottom: solid 2px #1F84C6;
+}
+
+.contact-container button{
+    width: 100%;
+    padding: 12px 30px;
+    margin: 0 50px;
+    background-color: #3793cc;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-container button:hover{
+    background-color: #1F84C6;
+}
+
 nav .nav-container{
-    width: 80%;
-    margin: 0 10%;
+    width: 98%;
+    margin: 0 2%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -55,33 +92,58 @@ nav .nav-container{
 
 
 .nav-container .logo img{
-    height: 3rem;
+    height: 5rem;
 }
 
 .nav-container .logo h1{
-    color: black;
+    color: #101010;
     margin-left: 0.5rem;
-    font-family: "Roboto Slab", "serif";
+
+    font-size: 2.8rem;
+
 }
 
 .nav-container .links{
     display: flex;
 }
 
+.link {
+    position: relative;
+    margin: 0 20px;
+}
+
+
 .links a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+
+    display: inline-block;
+}
+
+.link i{
+
+ }
+
+.links i{
     position: relative;
     color: black;
-    margin: 0 20px;
+    margin: 0 5px;
     text-decoration: none;
     font-size: 1.3rem;
+    transition: 0.2s ease;
+}
+
+.links i:hover{
+    cursor: pointer;
+    color: #E35451;
 }
 
 .active-link a{
     position: relative;
     color: #E35451;
-    margin: 0 20px;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .links a::before{
@@ -99,7 +161,7 @@ nav .nav-container{
     width: 100%;
 }
 
-nav i{
+nav .dropdown i{
     position: absolute;
     font-size: 2rem;
     right: 20px;
@@ -108,8 +170,13 @@ nav i{
 }
 
 nav .menu i{
-    top: 35px;
+    position: absolute;
+    font-size: 3rem;
+    right: 20px;
+    color: black;
+    top: 100px;
     display: none;
+
 }
 
 nav .cancel i{
@@ -155,11 +222,18 @@ nav i:hover{
     background-color: #E35451;
 }
 
+@media (width < 500px) {
+
+    .nav-container .logo h1{
+        display: none;
+    }
+}
+
 /*----------------------------------INTRO--------------------------------*/
 
 .intro{
     width: 100%;
-    padding: 150px 0 120px 0;
+    padding: 19rem 0 9rem 0;
     height: auto;
     color: white;
     display: flex;
@@ -298,6 +372,13 @@ nav i:hover{
     text-align: center;
 }
 
+.content-block .content-no-padding{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .content-block .split-container{
     display: flex;
     justify-content: space-between;
@@ -397,7 +478,7 @@ nav i:hover{
 
 /*----------------------------------services--------------------------------*/
 .service-split-container{
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     justify-content: center;
     text-align: center;
@@ -463,6 +544,7 @@ nav i:hover{
     flex-direction: column;
     text-align: center;
     margin: 20px;
+    height: 40rem;
 }
 
 .calculator-container .rating-container {
@@ -599,6 +681,7 @@ nav i:hover{
     border: 2px solid #ccc; /* Border to match input fields */
     cursor: pointer;
     color: #999999;
+
 }
 
 /* Default Button Style */
@@ -628,7 +711,7 @@ nav i:hover{
 
 /* Button Styling Adjustments */
 .button-container button {
-    margin: 0 10px; /* Add horizontal margin between buttons */
+    margin: 0 40px; /* Add horizontal margin between buttons */
     width: 10rem;
 }
 
@@ -674,6 +757,77 @@ nav i:hover{
 .calculator-house select:valid {
     color: black; /* Text color for valid inputs */
 }
+
+.button-container img {
+    width: 70%;
+    margin-top: 1rem;
+}
+
+
+
+/*----------------------------------slider--------------------------------*/
+
+.slider-wrapper {
+    position: relative;
+    max-width: 56rem;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    scroll-snap-stop: always;
+    scroll-behavior: smooth;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.slider img{
+    flex: 1 0 100%;
+
+    object-fit: cover;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a {
+    width: 1rem;
+    height: 1rem;
+
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover{
+    opacity: 1;
+}
+
+
+/*----------------------------------Image Banner--------------------------------*/
+.image_banner{
+    width: 100%;
+    height: 40rem;
+    background-image: url("/static/images/services/Banner_image.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+
 
 /*----------------------------------LOGO SCROLLER--------------------------------*/
 

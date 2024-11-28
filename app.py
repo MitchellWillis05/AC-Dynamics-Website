@@ -84,7 +84,7 @@ def calculate():
             return jsonify({'message': 'Error: Invalid input, please ensure all values are entered.'}), 400
 
 
-@app.route('/blog')
+@app.route('/calculator')
 def blog():
     return render_template("blog.html")
 

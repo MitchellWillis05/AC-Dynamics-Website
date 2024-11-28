@@ -1,6 +1,101 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <section class="content-block">
+        <div class="heading">
+            <h1>What's right for me?</h1>
+        </div>
+        <p>What do you want to heat?</p>
+        <div class="calculator-container" id="container">
+            <form class="calculator-room-select" id="calculator-room-select">
+                <div class="button-container">
+                    <button type="button" id="single-room" class="button-unselected">
+                        Single Room
+                        <img id="single-icon" src="/static/images/services/Cubeicon.png" alt="Cube">
+                    </button>
+                    <button type="button" id="whole-house" class="button-unselected">
+                        Whole House
+                        <img id="house-icon" src="/static/images/services/Houseicon.png" alt="House">
+                    </button>
+
+                </div>
+
+            </form>
+            <div class="rating-container" id="rating-circle">
+                <div class="rating-outer">
+                    <div class="rating-inner">
+                        <p id="rating-text">KW: 19.1</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <p id="error" class="error"></p>
+
+            <!-- Single Room Form -->
+            <form class="calculator-single" id="calculator-single">
+                <input type="number" id="width" name="width" step="0.1" placeholder="Room Width (m)">
+                <input type="number" id="length" name="length" step="0.1" placeholder="Room Length (m)">
+                <input type="number" id="height" name="height" step="0.1" placeholder="Room Height (m)">
+
+                <select id="outdoor-temp" name="outdoor-temp">
+                    <option value="" disabled selected>Select Region</option>
+                    <option value="4.5">Auckland</option>
+                    <option value="0.5">Christchurch</option>
+                    <option value="2.7">Wellington</option>
+                    <option value="-2.1">Queenstown</option>
+                    <option value="1.8">Dunedin</option>
+                    <option value="0.0">Hamilton</option>
+                    <option value="-1.6">Rotorua</option>
+                    <option value="-3.1">Taupo</option>
+                    <option value="-2.3">Invercargill</option>
+                    <option value="0.4">Napier</option>
+                </select>
+
+                <select id="insulation-single" name="insulation-single">
+                    <option value="" disabled selected>Insulation Level</option>
+                    <option value="1.8">Poorly Insulated</option>
+                    <option value="1.3">Partially Insulated</option>
+                    <option value="0.9">Fully Insulated</option>
+                </select>
+
+                <input type="hidden" name="form_type" value="single-room">
+                <button type="button" id="submit-single" onclick="submit_single()">Calculate Heating</button>
+            </form>
+
+            <!-- Whole House Form -->
+            <form class="calculator-house" id="calculator-house">
+                <input type="number" id="house-area" name="house-area" step="0.1" placeholder="House Area (m²)">
+                <input type="number" id="house-height" name="house-height" step="0.1" placeholder="House Height (m)">
+
+                <select id="outdoor-temp-house" name="outdoor-temp-house">
+                    <option value="" disabled selected>Select Region</option>
+                    <option value="4.5">Auckland</option>
+                    <option value="0.5">Christchurch</option>
+                    <option value="2.7">Wellington</option>
+                    <option value="-2.1">Queenstown</option>
+                    <option value="1.8">Dunedin</option>
+                    <option value="0.0">Hamilton</option>
+                    <option value="-1.6">Rotorua</option>
+                    <option value="-3.1">Taupo</option>
+                    <option value="-2.3">Invercargill</option>
+                    <option value="0.4">Napier</option>
+                </select>
+
+                <select id="insulation-house" name="insulation-house">
+                    <option value="" disabled selected>Insulation Level</option>
+                    <option value="1.8">Poorly Insulated</option>
+                    <option value="1.3">Partially Insulated</option>
+                    <option value="0.9">Fully Insulated</option>
+                </select>
+
+                <input type="hidden" name="form_type" value="whole-house">
+                <button type="button" id="submit-house" onclick="submit_house()">Calculate Heating</button>
+            </form>
+        </div>
+
+    </section>
 
     <script src="/static/scripts/blog.js"></script>
 {% endblock %}
