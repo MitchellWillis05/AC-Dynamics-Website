@@ -3,6 +3,16 @@ document.addEventListener("DOMContentLoaded", function() {
     servicesLink.classList.add("active-link");
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const link2 = document.getElementById("about");
+    link2.classList.add("inactive-link");
+    const link3 = document.getElementById("home");
+    link3.classList.add("inactive-link");
+    const link4 = document.getElementById("services");
+    link4.classList.add("inactive-link");
+
+});
+
 async function submit_entry(){
     const form = document.getElementById('contact-form')
     const formData = new FormData(form);

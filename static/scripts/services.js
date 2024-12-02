@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
     const servicesLink = document.getElementById("services");
     servicesLink.classList.add("active-link");
+
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const link2 = document.getElementById("about");
+    link2.classList.add("inactive-link");
+    const link3 = document.getElementById("home");
+    link3.classList.add("inactive-link");
+    const link4 = document.getElementById("contact");
+    link4.classList.add("inactive-link");
+
 });
 
 document.getElementById('single-room').addEventListener('click', function () {
