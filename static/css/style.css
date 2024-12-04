@@ -261,6 +261,33 @@ nav i:hover{
 
 /*----------------------------------INTRO--------------------------------*/
 
+#scrollToTopBtn {
+  display: none; /* Initially hidden */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #0056b3;
+}
+
+#scrollToTopBtn i {
+  font-size: 20px;
+}
+
 .intro{
     width: 100%;
     padding: 19rem 0 9rem 0;
