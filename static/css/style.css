@@ -416,6 +416,7 @@ nav i:hover{
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 5px;
 }
 
 .content-item .text-container {
@@ -671,6 +672,58 @@ nav i:hover{
     transform: translateX(+50%);
 }
 
+/*---------maintenance card--------*/
+
+        .refrigeration-card {
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            position: relative;
+            margin: 5px;
+        }
+
+        .refrigeration-card__image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .refrigeration-card__icon {
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: #007BFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .refrigeration-card__icon i {
+            color: white;
+            font-size: 40px;
+        }
+
+        .refrigeration-card__title {
+            font-size: 18px;
+            color: #E35451;
+            font-weight: bold;
+            margin: 50px 0 10px;
+        }
+
+        .refrigeration-card__text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            padding: 0 15px 15px;
+        }
 /*----------------------------------wattage calculator--------------------------------*/
 
 
