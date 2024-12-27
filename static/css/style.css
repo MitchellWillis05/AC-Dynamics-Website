@@ -538,6 +538,20 @@ nav i:hover{
 
 }
 
+.checklist {
+    display: flex;
+    justify-content: center;
+}
+
+.checklist h1{
+    color: #4a4a4a;
+    border: none;
+}
+
+.checklist i {
+    color: #118a06;
+}
+
 /*----------------------------------contact--------------------------------*/
 
 .contact-info h2{
