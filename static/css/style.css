@@ -307,7 +307,7 @@ nav i:hover{
     font-size: clamp(2rem, 1rem + 6vw, 5rem);
     font-weight: 600;
     font-family: "Montserrat", serif;
-    margin: -10px 0 -10px 0;
+
 }
 
 .intro .highlight{
@@ -317,6 +317,7 @@ nav i:hover{
 .intro p{
     font-size: clamp(0.6rem, 0.1rem + 1.7vw, 1.2rem);
     font-family: "Montserrat", serif;
+    text-align: center;
 }
 
 .intro i{
@@ -346,6 +347,10 @@ nav i:hover{
     display: flex;
     align-items: center;
     margin-top: 0;
+}
+
+.intro .intro-text p {
+
 }
 
 .intro .intro-button-container .intro-button{
@@ -638,45 +643,46 @@ nav i:hover{
 }
 
 .curved-container {
-    margin: 0 4vw; /* Use viewport width units for margin */
-    width: 20rem; /* Proportional width to the viewport */
-    min-height: fit-content;
-    height: auto; /* Proportional height to the viewport */
-    border-radius: 2vw; /* Proportional border radius */
-    box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.6); /* Proportional shadow */
+    margin: 2rem;
+    width: 20rem;
+    border-radius: 2vw;
+    box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.6);
     display: inline-block;
     flex-direction: column;
     text-align: center;
-    padding: 2rem; /* Proportional padding */
+    padding: 2rem;
+    overflow: hidden; /* Prevent text overflow */
 }
 
 .curved-container img {
-    width: 100%; /* The image will remain responsive to the container */
-    border-radius: 1vw; /* Proportional border radius for the image */
+    width: 100%;
+    aspect-ratio: 1/0.7;
+    border-radius: 1vw;
 }
 
 .curved-container h2 {
     margin: 0;
-    padding-bottom: 1vw; /* Can be converted if needed */
-    padding-top: 1vw; /* Can be converted if needed */
+    padding: 1vw 0;
     font-weight: bold;
     color: #1F84C6;
-    font-size: 1.5rem; /* Converted from 1.5vw */
+    font-size: clamp(0.8rem, 1.7vw, 1.2rem); /* Dynamically adjust font size */
+    line-height: 1.2; /* Maintain readable spacing */
+    transition: font-size 0.3s ease;
 }
 
 .curved-container p {
     padding-bottom: 20px;
-    font-size: 0.8rem; /* Converted from 1vw */
+    font-size: clamp(0.8rem, 1vw, 0.8rem);
+    min-height: 100px;
 }
 
 .curved-container a {
     color: #E35451;
     cursor: pointer;
-    margin-top: auto; /* Pushes the <a> tag to the bottom */
-    text-align: center; /* Center align the text if needed */
+    margin-top: auto;
+    text-align: center;
     text-decoration: none;
 }
-
 
 .curved-container i {
     transition: background-color 0.5s ease, transform 0.3s ease;
@@ -685,6 +691,7 @@ nav i:hover{
 .curved-container a:hover i {
     transform: translateX(+50%);
 }
+
 
 /*---------maintenance card--------*/
 
@@ -1177,6 +1184,8 @@ nav i:hover{
         display: none;
     }
 
+
+
 }
 
 @media (width < 1250px){
@@ -1208,6 +1217,7 @@ nav i:hover{
     .intro .intro-container {
         display: inline;
         justify-content: center;
+
     }
 
     .intro h1{
@@ -1223,6 +1233,10 @@ nav i:hover{
         flex-direction: row; /* Switch to inline display */
         flex-wrap: wrap;
     }
+
+     .intro {
+         padding: 10rem 0 4rem 0;
+     }
 
 
 

@@ -28,6 +28,14 @@ def services():
         return jsonify({'message': 'METHOD NOT ALLOWED'}), 405
 
 
+@app.route('/commercial', methods=['GET', 'POST'])
+def commercial():
+    if request.method == 'GET':
+        return render_template("commercial.html")
+    elif request.method == 'POST':
+        return jsonify({'message': 'METHOD NOT ALLOWED'}), 405
+
+
 @app.route('/calculate', methods=['GET', 'POST'])
 def calculate():
     if request.method == 'GET':
