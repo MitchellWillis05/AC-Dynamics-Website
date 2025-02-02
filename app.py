@@ -15,15 +15,31 @@ app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 
 
-@app.route('/')
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html")
+
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template("index.html")
+    if request.method == 'GET':
+        return render_template("index.html")
+    elif request.method == 'POST':
+        return jsonify({'message': 'METHOD NOT ALLOWED'}), 405
 
 
 @app.route('/services', methods=['GET', 'POST'])
 def services():
     if request.method == 'GET':
         return render_template("services.html")
+    elif request.method == 'POST':
+        return jsonify({'message': 'METHOD NOT ALLOWED'}), 405
+
+
+@app.route('/residential', methods=['GET', 'POST'])
+def residential():
+    if request.method == 'GET':
+        return render_template("residential.html")
     elif request.method == 'POST':
         return jsonify({'message': 'METHOD NOT ALLOWED'}), 405
 

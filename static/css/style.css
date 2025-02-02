@@ -401,6 +401,7 @@ nav i:hover{
     height: auto;
     padding-top: 150px;
 
+
 }
 
 .content-item {
@@ -1111,10 +1112,75 @@ nav i:hover{
 
 /*-----------------------Footer---------------------*/
 
-.footer {
-    width: 100%;
-    height: 20vh;
-    background-color: #4a4a4a;
+.custom-footer {
+    background-color: #222222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+.custom-footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.custom-footer .footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.custom-footer .footer-logo img {
+    height: 2.8rem;
+    margin-right: 10px;
+}
+.custom-footer .footer-links {
+    display: flex;
+    justify-content: right;
+    gap: 50px;
+    margin-top: 10px;
+}
+.custom-footer .footer-column {
+    text-align: left;
+}
+.custom-footer .footer-column a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0;
+    position: relative;
+    padding-bottom: 5px;
+}
+.custom-footer .footer-column a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out;
+}
+.custom-footer .footer-column a:hover::after {
+    width: 50%;
+}
+.custom-footer .footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: clamp(12px, 1.5vw, 14px);
+}
+/*-----------------------404---------------------*/
+.load_error {
+    padding: 10rem 0;
+    text-align: center;
+}
+
+.load_error h1 {
+    font-size: 10rem;
+    color: #E35451;
 }
 
 /*-----------------------Embed---------------------*/
@@ -1235,7 +1301,7 @@ nav i:hover{
     }
 
      .intro {
-         padding: 10rem 0 4rem 0;
+         padding: 13rem 0 4rem 0;
      }
 
 
