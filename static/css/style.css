@@ -559,6 +559,65 @@ nav i:hover{
     color: #118a06;
 }
 
+/*----------------------------------sectors--------------------------------*/
+.sector-section {
+    background-color: #ffffff;
+    padding: 40px 20px; /* Adds padding on top and bottom */
+    border-radius: 10px;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.6);
+}
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 20%; /* Aspect ratio control */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.6);
+}
+.image-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.sector-section .header {
+    color: #1F84C6;
+    font-size: clamp(1.5rem, 0.7rem + 3vw, 2rem);
+    font-weight: bold;
+    padding-top: 1rem;
+}
+.sector-section .separator {
+    border-top: 2px solid #E35451;
+    margin: 10px auto;
+    width: 80%;
+}
+.text {
+    font-weight: bold;
+    margin: 0 10%;
+}
+
+.sector-section a{
+    color: #E35451;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sector-section i {
+    transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+.sector-section a:hover i {
+    transform: translateX(+50%);
+}
 /*----------------------------------contact--------------------------------*/
 
 .contact-info h2{
