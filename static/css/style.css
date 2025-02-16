@@ -301,6 +301,7 @@ nav i:hover{
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
+    box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.6);
 }
 
 .intro h1{
@@ -395,7 +396,76 @@ nav i:hover{
     font-size: 1.5rem;
 }
 
+.sectors, .services, .installation {
+    padding: 20px;
+    text-align: center;
+}
+.sector-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.sector {
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.sector img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/*----------------------------------capabilities--------------------------------*/
+
+.capabilities {
+    padding: 20px;
+    text-align: center;
+}
+.capabilities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.capability {
+    background: white;
+    margin: 10px;
+
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    width: 250px;
+    height: 150px;
+    text-align: center;
+
+}
+
+.capa-box {
+    border: #E35451 solid 3px;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    min-height: inherit;
+    height: 130px;
+    align-items: center;
+    display: flex;
+}
+
+.capability h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #1F84C6;
+
+
+}
+
 /*----------------------------------content--------------------------------*/
+
+
 
 .content-block {
     width: 100%;
