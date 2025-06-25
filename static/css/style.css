@@ -499,12 +499,11 @@ nav i:hover{
 
 .content-item .text-container {
     flex: 1 1 50%;
-    background-color: #f4f4f4;
+    background-color: white;
     padding: 20px;
     box-sizing: border-box;
     font-size: 1.25rem;
     line-height: 1.8;
-    color: #333;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -768,10 +767,11 @@ nav i:hover{
 /*----------------------------------services--------------------------------*/
 .service-split-container{
     display: inline-block;
-    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .curved-container {
@@ -784,6 +784,7 @@ nav i:hover{
     text-align: center;
     padding: 2rem;
     overflow: hidden; /* Prevent text overflow */
+    background: white;
 }
 
 .curved-container img {
@@ -828,7 +829,7 @@ nav i:hover{
     text-align: center;
     margin: 4rem 5%;
     padding: 2rem;
-    box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.6);
+
     border-radius: 15px;
 }
 
@@ -1467,7 +1468,7 @@ nav i:hover{
     }
 
        .service-split-container {
-        flex-direction: row; /* Switch to inline display */
+        flex-direction: row;
         flex-wrap: wrap;
     }
 
